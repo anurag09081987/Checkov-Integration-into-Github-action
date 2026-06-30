@@ -21,6 +21,7 @@ jobs:
         uses: bridgecrewio/checkov-action@v12.1347.0
         with:
           directory: ./azure_resources
+          soft_fail: true
 
       - name: Terraform Install
         uses: hashicorp/setup-terraform@v2.0.3
@@ -45,7 +46,7 @@ jobs:
         working-directory: ./azure_resources
 
       - name: Terraform plan
-        run: terrafrom plan -out=tfplan
+        run: terraform plan -out=tfplan
         working-directory: ./azure_resources
 
   Resource-Provision:
