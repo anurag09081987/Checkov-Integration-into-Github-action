@@ -11,6 +11,7 @@ permissions:
   
 jobs:
   Security-Tool-CheckoV:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,6 +49,7 @@ jobs:
         working-directory: ./azure_resources
 
   Resource-Provision:
+    name: deploy
     runs-on: ubuntu-latest
     environment: production
     needs: Security-Tool-CheckoV
